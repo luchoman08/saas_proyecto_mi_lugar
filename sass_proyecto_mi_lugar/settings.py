@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gestion_inmobiliarias.apps.GestionInmobiliariasConfig',
+    'gestion_usuarios.apps.GestionUsuariosConfig',
+    'gestion_productos.apps.GestionProductosConfig',
+    'gestion_clientes.apps.GestionClientesConfig',
 ]
 
 MIDDLEWARE = [
