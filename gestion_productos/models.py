@@ -12,6 +12,13 @@ from gestion_inmobiliarias import models as gestion_inmobiliarias_models
 
 class Producto(models.Model):
     nombre = models.CharField(_('Nombre de el producto'), max_length=50, null = False)
+    estrato = models.PositiveIntegerFiel(_('Estrato'), null= False) 
+    direccion = models.CharField(_('Dirección'), max_length= 50, null= False)
+    ciudad = models.CharField(_('Ciudad'), max_length= 50, null= False)
+    area = models.CharField(_('Área'), max_length= 30, null= False)
+    #imagen
+    descripcion = models.CharField(_('Descripción'), max_length= 1000, null= False)
+    #antiguedad = model.CharField(_('Antigüedad'), max_length= 50, null= False)
 
 class Servicio(models.Model):
     precio_mensual =  models.DecimalField(_('Precio alquiler'), null = False, decimal_places = 3, max_digits = 20)
