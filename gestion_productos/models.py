@@ -16,7 +16,7 @@ class Producto(models.Model):
     direccion = models.CharField(_('Dirección'), max_length= 50, null= False)
     ciudad = models.CharField(_('Ciudad'), max_length= 50, null= False)
     area = models.CharField(_('Área'), max_length= 30, null= False)
-    #imagen
+    #imagen = models.ImageField(_('Imagen de perfil'), null=False, default=0, upload_to='static/imagenes/productos')
     descripcion = models.CharField(_('Descripción'), max_length= 1000, null= False)
     #antiguedad = model.CharField(_('Antigüedad'), max_length= 50, null= False)
 
@@ -29,10 +29,13 @@ class ServicioTiempoDefinido(Servicio):
 
 class Apartamento(Producto):
     tiene_garaje = models.BooleanField(_('Garaje incluido'), null = False)
+    numero_habitaciones = models.IntegerField(_('Número de habitaciones'), null = False)
+    numero_banos = models.PositiveIntegerFiel(_('Número de baños'), null= False)
 
-class Terreno(Producto):
+class Lote(Producto):
     metros_cuadrados =  models.DecimalField(_('Metros cuadrados'), null = False, decimal_places = 3, max_digits = 20)
     #precio terreno
+    #tiene_servicios
 
 class OfertaApartamentoAlquilerTiempoDefinido(ServicioTiempoDefinido):
     apartamento = models.ForeignKey(Apartamento, related_name='ofertaAlquilerApartamentoTiempoDefinido', on_delete=models.CASCADE)
@@ -45,4 +48,7 @@ class Venta(models.Model):
 
 class Casa(Producto):
     numero_habitaciones = models.IntegerField(_('Número de habitaciones'), null = False)
+    tiene_garaje = models.BooleanField(_('Garaje incluido'), null = False)
+    tiene_patio = models.BooleanField(_('Patio'), null= False) # Toca definir
+    numero_banos = models.PositiveIntegerFiel(_('Número de baños'), null= False)
 

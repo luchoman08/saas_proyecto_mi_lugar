@@ -11,4 +11,5 @@ class Clientes(modelos_gestion_usuarios.Usuario):
     fecha_nacimiento = models.DateField(_('Fecha de nacimiento'), null = False)
     numero_identificacion = models.CharField(_('Número de identificación'), max_length=40, null=False)
     direccion = models.CharField(_('Dirección'), max_length=50, blank=False, null=False)
+    telefono = models.CharField(_('Teléfono'), max_length= 30, null= False)
 
